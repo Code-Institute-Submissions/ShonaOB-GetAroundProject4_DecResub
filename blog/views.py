@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views.generic import (
+    ListView,
+    View,
+    DetailView,
+    CreateView)
 from .models import TransportReview
 
-class ReviewList(generic.ListView):
+
+class ReviewList(ListView):
     model = TransportReview
-    queryset = TransportReview.objects.order_by('-created_on')
-    template_name = 'index.html'
+    queryset = TransportReview.objects.order_by("-created_on")
+    template_name = "index.html"
     paginate_by = 6
-    
+
