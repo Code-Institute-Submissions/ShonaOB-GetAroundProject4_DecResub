@@ -5,6 +5,7 @@ from django.views.generic import (
     DetailView,
     CreateView)
 from .models import TransportReview
+from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.urls import reverse
 
@@ -69,3 +70,15 @@ class PostCreateView(CreateView):
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
 
+
+class PostLike(View):
+
+    def post(self, request, slug):
+        post = get_object_or_404(TransportReview, slug=slug)
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('review_detail', args=[slug]))
