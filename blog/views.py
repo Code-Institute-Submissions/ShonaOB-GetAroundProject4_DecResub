@@ -3,7 +3,8 @@ from django.views.generic import (
     ListView,
     View,
     DetailView,
-    CreateView)
+    CreateView,
+    UpdateView)
 from .models import TransportReview
 from django.http import HttpResponseRedirect
 from .forms import PostForm
@@ -82,3 +83,12 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+
+
+class UpdatePostView(UpdateView):
+    model = TransportReview
+    template_name = 'update_post.html'
+    fields = ['title', 'review_body', 'featured_image']
+
+    def get_success_url(self):
+        return reverse('review_detail', kwargs={'slug': self.object.slug})

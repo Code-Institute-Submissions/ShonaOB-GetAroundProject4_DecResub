@@ -37,6 +37,13 @@
                 </p>
                 <div class="row">
                     <div class="col-1">
+                        {% if user == review.user_name %}
+                        <a href="{% url 'update_post' review.slug  %}"><i class="fa-solid fa-pencil">Edit Review</i></a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'post_like' review.slug %}" method="POST">

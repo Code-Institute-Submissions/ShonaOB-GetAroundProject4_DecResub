@@ -20,7 +20,7 @@
                                 <img class="card-img-top" src="{{ review.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ review.author }}</p>
+                                    <p class="author">Author: {{ review.user_name }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'review_detail' review.slug  %}" class="post-link">
