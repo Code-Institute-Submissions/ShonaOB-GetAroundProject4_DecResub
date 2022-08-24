@@ -142,3 +142,7 @@ body {
     background: transparent;
     border: none;
 }
+
+.fa-star {
+    color: #ffd700;
+}

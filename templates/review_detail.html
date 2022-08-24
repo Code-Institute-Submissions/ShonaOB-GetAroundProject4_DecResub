@@ -30,7 +30,13 @@
                     {{ review.city | safe  }}
                     {{ review.sight | safe  }}
                     {{ review.title | safe  }}
-                    {{ review.rating | safe  }}
+                </p>
+                <p>
+                    <span class ="{% if review.rating > 0 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span class ="{% if review.rating > 1 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span class ="{% if review.rating > 2 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span class ="{% if review.rating > 3 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span class ="{% if review.rating > 4 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
                 </p>
                 <p>
                     {{ review.review_body | safe }}
