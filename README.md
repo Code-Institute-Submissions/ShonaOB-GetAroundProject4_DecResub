@@ -1,108 +1,246 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align=center> GetAround.ie </h1>
 
-Welcome ShonaOB,
+<p align=center>Travel like a local... <br/> Locals know the best ways to get around our favourite cities, our site lets the locals rate their favourite transport routes to our favourite tourist sites! <br/>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+</p>
+<p align="center">
+<img src="media/readme/">
+</p>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Live app link [here]()
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience
 
-`python3 -m http.server`
+### User Stories
 
-A blue button should appear to click: _Make Public_,
+As a user, I would like to: 
 
-Another blue button should appear to click: _Open Browser_.
+1. Register as a user. This will allow me to like other people's ratings, and to log my own ratings. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+2. Create a Review: share my own experiences including a photo if I have one, and a rating from 1 to 5 on the transport I used. 
 
-A blue button should appear to click: _Make Public_,
+3. Like other users posts
 
-Another blue button should appear to click: _Open Browser_.
+4. Navigate the site easily, in a familiar way
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+5. Search for reviews by the city I am visiting
 
-To log into the Heroku toolbelt CLI:
+As an administrator, I would like to: 
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+1. Be able to log in and view the admin panel
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+2. Be able to manage posts/reviews as required including editing and deleting. 
 
-------
 
-## Release History
+### 1. Strategy
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  + **Project Goal**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+   Create a platform that allows people (users) to share their experiences with local transport networks, and rate them from 1 to 5 stars. 
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### 2. Scope
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+This project will cover the building of the basic application, including: 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- registration and authentication of users
+- creating reviews
+- liking reviews
+- searching for reviews by city
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Functional Scope 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+**GetAround DER - Diagram Entity Relationship**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<img width= "800" src="media/readme/bestbeer_der.png">
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+**Agile Methodology**
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<details>
+<summary>SPRINTS</summary>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Test cases were linked with every User story presented above, and can be found in TESTING.md(TESTING.md) - Automated testing section. 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* Sprint 1
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+  + Setup Django 
+  + Heroku Deployment 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* Sprint 2
 
-------
+  + Create Admin Panel & Superuser
+  + Create the Add Country, Add City, Add Sight process through Admin
+  + Create Index page with views of listed reviews 
 
-## FAQ about the uptime script
+* Sprint 3
 
-**Why have you added this script?**
+  + Create Add Review
+  + Set up Site Pagination
+  + Create Login / Logout / Register pages
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+* Sprint 4
 
-**How will this affect me?**
+  + Set up Likes process
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* Sprint 5
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+  + Amend the visual of the rating to show stars based on rating level
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+* Sprint 6
 
-**So….?**
+  + Create Search Bar
+  + Amend CSS for branded styling
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+* Sprint 7
 
-**Can I opt out?**
+  + Create and manage final user tests
+  + Final Deployment
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+</details>
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+### 3. Structure
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+* The site is clean and tidy, with easy to recognise navigation
+* Once logged in, the nav bar updates accordingly
+* Filtering with the search bar provides a smooth user experience
 
----
 
-Happy coding!
+### 4. Skeleton
+
+The wireframe for this project was created with Balsamiq:
+
+
+### 5. Theme / Branding
+
+* Colours
+
+I created the background image myself using Procreate. I then pulled the colours from the background image to use throughout the site for continuity. 
+
+  <img width="300" src="static/images/Bg.jpg">
+
+* Font Selection
+ 
+Font was chosen with [Google Fonts](https://fonts.google.com/) to be used across the website.
+
+The most suited font for this project was Quicksand. 
+
+## Existing Features
+
+### **Navbar** 
+
+If the user is logged in, the navbar will present the option to Create a Review, and to Log Out. 
+
+If the user is NOT logged in, the navbar will present the option to Log In or to Register. 
+
++ The Navbar will collapse on mobile devices. 
+
+### **Home Page**
+
+The home page contains rows and columns which display cards. 
+
+Each card contains the link to the relevant Review and Rating. 
+
+The Card displays: 
+The Featured Image (or placeholder as relevant)
+The author
+The title
+The rating in stars
+Created/Updated date
+Number of likes
+A link to read more
+
+### **Review Details page** 
+
+The Review Details page shows:
+- The title
+- The featured image
+- The review body
+- The rating in stars
+- The like button 
+
+## Future Features
+
+I would like to ...
+
+1. Add maps to the review details; so that you can load the transport option and location on GoogleMaps
+2. Allow video uploads; so that users can share more details of the tranport method
+3. Add a price field; so that you can filter the best transport options based on price. 
+4. Allow Social Media login and sharing 
+
+## Languages Used
+
+Python 3.0
+
+## Frameworks, Libraries & Programs Used
+
++ Balsamiq: Balsamiq was used to create the wireframes during the design process.
++ Font Awesome: Font Awesome was used on all pages to add icons for aesthetic and UX purposes.
++ Git: Git was used for version control.
++ Google Fonts: Google fonts are used to add fonts for aesthetic and UX purposes.
++ Django
++ LucidChart for the ERD
+
+
+## Testing and Code validation 
+
+
+
+## Project Bugs and Solutions:
+
+| Bugs              | Solutions |
+| ---               | --------- |
+| Database inconsistency during unittests|Restart all projects, adding two different databases (development and production) to make it possible to run tests successfully.
+| Update Review and Delete Unittest failed when tried to change or delete a review | Debug Update review class models and change save function resolved the problem. 
+| Navbar dropdown opening behind site divs | Add z-index to navbar resolved the problem. 
+| Register feature was not showing the error when it happened | Debug Register function and remove else statement to redirect the user to the same page when it happens. After deleting this part of the function, everything worked fine. 
+| Buttons hidden by footer (only in Chrome | Switch margin-bottom to padding-bottom solved the problem. 
+| Bitterness and Money value with the same value on beer review details page | Changed variable present on HTML resolved the issue. 
+|Logged users could edit or delete reviews from other users if using delete and update urls directly pointing to others reviews pk| handled using loginmixing on post app functions|
+
+
+## Deployment 
+
+This App is deployed using Heroku.
+
+<details>
+<summary>Heroku Deployment </summary>
+1. Login to Heroku
+
+2. Create a new App
+
+3. Update the Config Vars 
+ 
+
+3. Deployment on Heroku
+
+    3.1.  Navigate to the Deploy tab.
+    
+    <img src="media/readme/deployment/heroku_dashboard_deploy.png">
+    
+    3.2.  Choose the main branch to deploy and enable automatic deployment to build Heroku every time any changes are pushed on the repository.
+    
+    <img src="media/readme/deployment/heroku_automatic_deploys.png">
+    
+    3.3 Click on manual deploy to build the App.  When complete, click on View to redirect to the live site. 
+    
+    <img src="media/readme/deployment/heroku_view.png">
+</details>
+
+# Credits
+
+## Media
+
++ All pictures and images used in this project are from [Unsplash](https://unsplash.com).
+
+## Work based on other code
+
+[Codemy](https://www.youtube.com/watch?v=AGtae4L5BbI) - Search Bar <br>
+[Pyplane](https://www.youtube.com/channel/UCQtHyVB4O4Nwy1ff5qQnyRw) - Star rating tutorial used to develop beer rating feature. <br>
+[CodeInstitute](https://www.codeinstitute.net) - Learning Material and module training videos. The initial template layouts were found using the "Think Therefore I blog" walkthrough project, but amended to suit this project. 
+
+# Acknowledgements
+
++ All my fellow students on our Slack group - they have been hugely supportive and helpful. 
+ +Tutoring @ CodeInstitute - a wonderful resource for when I was stuck along the way. 
