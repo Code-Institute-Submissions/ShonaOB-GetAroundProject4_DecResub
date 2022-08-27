@@ -53,14 +53,12 @@ This project will cover the building of the basic application, including:
 
 **GetAround DER - Diagram Entity Relationship**
 
-<img width= "800" src="media/readme/bestbeer_der.png">
+<img width= "800" src="static/images/readme/Model_databases.jpeg">
 
 **Agile Methodology**
 
 <details>
-<summary>SPRINTS</summary>
-
-Test cases were linked with every User story presented above, and can be found in TESTING.md(TESTING.md) - Automated testing section. 
+<summary>SPRINTS</summary> 
 
 * Sprint 1
 
@@ -185,20 +183,25 @@ Python 3.0
 
 ## Testing and Code validation 
 
+This project was tested using unittest. Manual testing was done also to ensure no User Errors were experienced. 
 
+<img width="300" src="static/images/testresults/test_forms.JPG">
+<br>
+<img width="300" src="static/images/testresults/test_forms.JPG">
 
 ## Project Bugs and Solutions:
 
 | Bugs              | Solutions |
 | ---               | --------- |
-| Database inconsistency during unittests|Restart all projects, adding two different databases (development and production) to make it possible to run tests successfully.
-| Update Review and Delete Unittest failed when tried to change or delete a review | Debug Update review class models and change save function resolved the problem. 
-| Navbar dropdown opening behind site divs | Add z-index to navbar resolved the problem. 
-| Register feature was not showing the error when it happened | Debug Register function and remove else statement to redirect the user to the same page when it happens. After deleting this part of the function, everything worked fine. 
-| Buttons hidden by footer (only in Chrome | Switch margin-bottom to padding-bottom solved the problem. 
-| Bitterness and Money value with the same value on beer review details page | Changed variable present on HTML resolved the issue. 
-|Logged users could edit or delete reviews from other users if using delete and update urls directly pointing to others reviews pk| handled using loginmixing on post app functions|
+| REMAINING FAILED TEST - Test_Models is failing with error message "model object has no attribute done" | Attempts to resolve this before submission time failed, but will continue until a resolution is found. 
+| The background on the Rows was covering the body image | Change transparency of the row resolved the issue 
+| Home link was not working | Consultation with Tutor Support showed me that there was a duplicate url, which was removed, and this resolved the issue. 
+| Search Bar was bringing the user to "add post" function, rather than search results | Moving the url for the search function to above other urls which directed to "views" helped to resolve the issue. 
+| 
 
+<p>
+Unfortunately I was unable to resolve the remaining failed test before submission. As tutoring hours were closed, I was unable to contact them for assistance. Attempts to get assistance on Slack failed, and stackoverflow didn't seem to have a resolution for this particular error. 
+</p>
 
 ## Deployment 
 
@@ -216,16 +219,11 @@ This App is deployed using Heroku.
 3. Deployment on Heroku
 
     3.1.  Navigate to the Deploy tab.
-    
-    <img src="media/readme/deployment/heroku_dashboard_deploy.png">
-    
+        
     3.2.  Choose the main branch to deploy and enable automatic deployment to build Heroku every time any changes are pushed on the repository.
-    
-    <img src="media/readme/deployment/heroku_automatic_deploys.png">
-    
+        
     3.3 Click on manual deploy to build the App.  When complete, click on View to redirect to the live site. 
     
-    <img src="media/readme/deployment/heroku_view.png">
 </details>
 
 # Credits
@@ -237,10 +235,11 @@ This App is deployed using Heroku.
 ## Work based on other code
 
 [Codemy](https://www.youtube.com/watch?v=AGtae4L5BbI) - Search Bar <br>
-[Pyplane](https://www.youtube.com/channel/UCQtHyVB4O4Nwy1ff5qQnyRw) - Star rating tutorial used to develop beer rating feature. <br>
+[Pyplane](https://www.youtube.com/channel/UCQtHyVB4O4Nwy1ff5qQnyRw) - Star rating tutorial used to develop transport rating feature. <br>
 [CodeInstitute](https://www.codeinstitute.net) - Learning Material and module training videos. The initial template layouts were found using the "Think Therefore I blog" walkthrough project, but amended to suit this project. 
+[Codegrepper.com](https://www.codegrepper.com/code-examples/python/django+SEARCH+IN+CLASS+BASED+VIEW) - Search Bar for a class based view
 
 # Acknowledgements
 
 + All my fellow students on our Slack group - they have been hugely supportive and helpful. 
- +Tutoring @ CodeInstitute - a wonderful resource for when I was stuck along the way. 
++ Tutoring @ CodeInstitute - a wonderful resource for when I was stuck along the way. I cannot thank them enough for their patience and support. 
