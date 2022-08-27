@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
+<h1 class="results_header">Your Results are in....</h1>
 
-        <!-- Review Entries Column -->
-        <div class="col-8 mt-3 left">
-            <div class="row">
-            {% for review in object_list %}
+<!-- Search Results Column -->
+<div class="col-8 mt-3 left">
+    <div class="row">
+        {% for review in object_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -32,49 +31,18 @@
                                     <span class ="{% if review.rating > 3 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
                                     <span class ="{% if review.rating > 4 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
                                 </p>
-                            </a>
-                            <hr>
-                            <p class="card-text text-muted h6">{{ review.created_on }}
-                            <i class="far fa-heart"></i>{{ review.number_of_likes }}
-                            </p>
-                        </div>
+                        <hr />
+                    <p class="card-text text-muted h6">{{ review.created_on}} <i class="far fa-heart"></i>
+                        {{ review.number_of_likes }}</p>
                     </div>
                 </div>
-            {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">
-            {% endif %}
-            {% endfor %}
-            </div>
+        {% if forloop.counter|divisibleby:3 %}
         </div>
-        <div class="col-4 mt-3 right">
-            <div class="row">
-                <div class="about">
-                    <p>
-                        Find the best ways to<span class="red-text"> Get Around </span>on your travels!
-                    </p>
-                    <p>Find reviews from real people for the sights you want to see.</p>
-                    <p class="brand">Or</p> 
-                    <p>Register now to log a review!</p>
-                    <button class="btn"><a href="{% url 'account_signup' %}"> Register Now!</a></button>
-                </div>
-            </div>    
-        </div>
+        <div class="row">
+
+        {% endif %}
+        {% endfor %}
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page Navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-
 </div>
-
-{%endblock%}
+{% endblock %}

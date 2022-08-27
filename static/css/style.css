@@ -30,7 +30,7 @@ body {
 
 .card {
     border: none;
-    background-color: rgba(0,0,0,0.048);
+    background-color: #F9FAFC;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -38,6 +38,22 @@ body {
     background-color: rgba(255, 255, 255, 0.66)
 }
 
+.about {
+    border: none;
+    background-color: #F9FAFC;
+    font-family: 'Quicksand', sans-serif;
+    text-align:center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.results_header {
+    background-color: #F9FAFC;
+    font-family: 'Quicksand', sans-serif;
+    text-align:left;
+    font-weight: bold;
+    font-size:x-large;
+}
 .row {
     background-color: rgba(0,0,0,0.048)
 }
@@ -125,6 +141,11 @@ body {
     color: #f91515;
 }
 
+.btn-outline-info {
+    color:#232424;
+    
+}
+
 .link {
     color: #f91515;
     text-decoration: none;
@@ -151,4 +172,9 @@ body {
 
 .fa-star {
     color: #ff8800;
+}
+
+.form-group {
+    margin: 30px;
+    background-color: #ccd8db;
 }

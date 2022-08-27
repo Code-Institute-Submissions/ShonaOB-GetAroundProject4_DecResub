@@ -58,6 +58,9 @@
                 </span>
             </div>
         </div>
+        <form method="GET" action="{% url 'search_results' %}">
+            <input name="q" value="{{request.GET.q}}" placeholder="search by review title...">
+        </form>
     </nav>
 
     <main class="flex-shrink-0 main-bg">

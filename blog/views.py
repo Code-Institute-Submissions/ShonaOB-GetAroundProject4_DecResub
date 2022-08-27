@@ -92,3 +92,17 @@ class UpdatePostView(UpdateView):
 
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
+
+
+class SearchList(ListView):
+    template_name = 'search.html'
+    model = TransportReview
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            object_list = self.model.objects.filter(title__icontains=query)
+        else:
+            object_list = self.model.objects.none()
+        return object_list
+        
