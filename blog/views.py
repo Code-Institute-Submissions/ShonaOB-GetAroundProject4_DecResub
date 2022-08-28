@@ -3,12 +3,13 @@ from django.views.generic import (
     ListView,
     View,
     DetailView,
+    DeleteView,
     CreateView,
     UpdateView)
 from .models import TransportReview
 from django.http import HttpResponseRedirect
 from .forms import PostForm
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 
 class ReviewList(ListView):
@@ -105,4 +106,10 @@ class SearchList(ListView):
         else:
             object_list = self.model.objects.none()
         return object_list
-        
+
+class DeletePostView(DeleteView):
+    model = TransportReview
+    template_name = 'delete_review.html'
+
+    success_url = reverse_lazy('home')
+  

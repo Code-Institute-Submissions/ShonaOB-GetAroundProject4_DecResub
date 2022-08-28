@@ -44,7 +44,8 @@
                 <div class="row">
                     <div class="col-1">
                         {% if user == review.user_name %}
-                        <button class="btn btn-outline-info"><a href="{% url 'update_post' review.slug  %}"><i class="fa-solid fa-pencil">Edit Review</i></a></button>
+                        <button class="btn btn-outline-info"><a href="{% url 'update_post' review.slug  %}"><i class="fa-solid fa-pencil"></i>Edit Review</a></button>
+                        <button class="btn btn-outline-info"><a href="{% url 'delete_post' review.slug  %}"><i class="fa-solid fa-trash-can"></i>Delete Review</a></button>
                         {% endif %}
                     </div>
                 </div>
