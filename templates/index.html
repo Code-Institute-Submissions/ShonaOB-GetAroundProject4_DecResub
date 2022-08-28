@@ -15,7 +15,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in review.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    src="https://res.cloudinary.com/shonaobdev/image/upload/v1661676809/dino-reichmuth-A5rCN8626Ck-unsplash_ikbl72.jpg">
                                 {% else %}
                                 <img class="card-img-top" src="{{ review.featured_image.url }}">
                                 {% endif %}
@@ -24,7 +24,8 @@
                                 </div>
                             </div>
                             <a href="{% url 'review_detail' review.slug  %}" class="post-link">
-                                <h3 class="card-title">{{ review.title }}</h3>
+                                <h4 class="card-title">{{ review.title }}</h4>
+                                <h5>{{ review.country }} - {{ review.city }} - {{ review.sight }}</h5>
                                 <p>
                                     <span class ="{% if review.rating > 0 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
                                     <span class ="{% if review.rating > 1 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>

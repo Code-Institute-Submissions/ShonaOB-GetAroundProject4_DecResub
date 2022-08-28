@@ -12,7 +12,7 @@
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <img src="https://res.cloudinary.com/shonaobdev/image/upload/v1661676809/dino-reichmuth-A5rCN8626Ck-unsplash_ikbl72.jpg" width="100%">
                 {% else %}
                 <img src="{{ review.featured_image.url }} " width="100%">
                 {% endif %}
@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-1">
                         {% if user == review.user_name %}
-                        <a href="{% url 'update_post' review.slug  %}"><i class="fa-solid fa-pencil">Edit Review</i></a>
+                        <button class="btn btn-outline-info"><a href="{% url 'update_post' review.slug  %}"><i class="fa-solid fa-pencil">Edit Review</i></a></button>
                         {% endif %}
                     </div>
                 </div>
