@@ -3,9 +3,6 @@
 <p align=center>Travel like a local... <br/> Locals know the best ways to get around our favourite cities, our site lets the locals rate their favourite transport routes to our favourite tourist sites! <br/>
 
 </p>
-<p align="center">
-<img src="media/readme/">
-</p>
 
 Live app link [here]()
 
@@ -116,7 +113,7 @@ The wireframe for this project was created with Balsamiq:
 
 I created the background image myself using Procreate. I then pulled the colours from the background image to use throughout the site for continuity. 
 
-  <img width="300" src="static/images/Bg.jpg">
+  <img width="300" src="https://res.cloudinary.com/shonaobdev/image/upload/v1661677036/Bg_ykqhai.jpg">
 
 * Font Selection
  
@@ -194,6 +191,7 @@ This project was tested using unittest. Manual testing was done also to ensure n
 | Bugs              | Solutions |
 | ---               | --------- |
 | REMAINING FAILED TEST - Test_Models is failing with error message "model object has no attribute done" | Attempts to resolve this before submission time failed, but will continue until a resolution is found. 
+|REMAINING BUG - PLACEHOLDER IMAGE | In the review_detail.html the placeholder image does not load. After discussion with Tutoring the recommendation was to change the model for the placeholder image and replace the word "placeholder" with the link to the image. However, since there is already data in the database and the project needs to be submitted, I have not replaced this code within the models to avoid any data corruption. This will be rectified at a later stage. 
 | The background on the Rows was covering the body image | Change transparency of the row resolved the issue 
 | Home link was not working | Consultation with Tutor Support showed me that there was a duplicate url, which was removed, and this resolved the issue. 
 | Search Bar was bringing the user to "add post" function, rather than search results | Moving the url for the search function to above other urls which directed to "views" helped to resolve the issue. 
