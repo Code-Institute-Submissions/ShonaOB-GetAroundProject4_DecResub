@@ -10,6 +10,8 @@ from .models import TransportReview
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.decorators import login_required
+
 
 
 class ReviewList(ListView):
@@ -60,6 +62,7 @@ class ReviewDetail(View):
             },
         )
 
+@login_required
 class PostCreateView(CreateView):
     model = TransportReview
     form_class = PostForm
@@ -72,7 +75,7 @@ class PostCreateView(CreateView):
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
 
-
+@login_required
 class PostLike(View):
 
     def post(self, request, slug):
@@ -85,7 +88,7 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
-
+@login_required
 class UpdatePostView(UpdateView):
     model = TransportReview
     template_name = 'update_post.html'
@@ -107,6 +110,8 @@ class SearchList(ListView):
             object_list = self.model.objects.none()
         return object_list
 
+
+@login_required
 class DeletePostView(DeleteView):
     model = TransportReview
     template_name = 'delete_review.html'
