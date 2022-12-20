@@ -57,6 +57,8 @@ This project will cover the building of the basic application, including:
 <details>
 <summary>SPRINTS</summary> 
 
+The Github Projects Board was used to plan and implement user stories - please see [here](https://github.com/users/ShonaOB/projects/4/views/1)
+
 * Sprint 1
 
   + Setup Django 
@@ -111,15 +113,13 @@ The wireframe for this project was created with Balsamiq:
 
 * Colours
 
-I created the background image myself using Procreate. I then pulled the colours from the background image to use throughout the site for continuity. 
-
-  <img width="300" src="https://res.cloudinary.com/shonaobdev/image/upload/v1661677036/Bg_ykqhai.jpg">
+The site was deliberately created with a white background to allow users images to pop. This was expected to encourage the uploading of personal photos. 
 
 * Font Selection
  
 Font was chosen with [Google Fonts](https://fonts.google.com/) to be used across the website.
 
-The most suited font for this project was Quicksand. 
+The most suited font for this project was Quicksand. It was considered clean and tidy, while also being reminiscent of old-style travel stamps!
 
 ## Existing Features
 
@@ -182,9 +182,15 @@ Python 3.0
 
 This project was tested using unittest. Manual testing was done also to ensure no User Errors were experienced. 
 
-<img width="300" src="static/images/testresults/test_forms.JPG">
+<img width="600" height="300" src="static/images/testresults/test_forms.JPG">
 <br>
-<img width="300" src="static/images/testresults/test_forms.JPG">
+<img width="600" height="300" src="static/images/testresults/test_forms.JPG">
+<br>
+The HTML and the CSS were checked via w3 Validation - please see results below:
+<img width="600"  height="300" src="static/images/readme/html_validator.jpg">
+<br>
+<img width="600"  height="300" src="static/images/readme/css_validator.jpg">
+<br>
 
 ## Project Bugs and Solutions:
 
