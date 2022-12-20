@@ -11,7 +11,16 @@ class PostForm(forms.ModelForm):
     """
     class Meta:
         model = TransportReview
-        fields = ('country', 'city', 'sight', 'transport_option', 'title', 'featured_image', 'rating', 'review_body',)
+        fields = (
+            'country',
+            'city',
+            'sight',
+            'transport_option',
+            'title',
+            'featured_image',
+            'rating',
+            'review_body',
+        )
         widgets = {
             'review_body': SummernoteWidget(),
         }

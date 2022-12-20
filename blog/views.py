@@ -1,28 +1,27 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import (
-    ListView,
-    View,
-    DetailView,
-    DeleteView,
-    CreateView,
-    UpdateView)
+from django.views import generic
 from .models import TransportReview
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.urls import reverse, reverse_lazy
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
-class ReviewList(ListView):
+class ReviewList(generic.ListView):
+    """
+    To show all reviews
+    """
     model = TransportReview
-    queryset = TransportReview.objects.order_by("-created_on")
+    queryset = TransportReview.objects.order_by('-created_on')
     template_name = "index.html"
     paginate_by = 6
 
 
-class ReviewDetail(View):
+class ReviewDetail(generic.DetailView):
 
+    """
+    To show all reviews
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = TransportReview.objects.order_by('-created_on')
         review = get_object_or_404(queryset, slug=slug)
@@ -34,8 +33,8 @@ class ReviewDetail(View):
             request,
             "review_detail.html",
             {"review": review,
-            "liked": liked,
-            },
+             "liked": liked,
+             },
         )
 
     def post(self, request, slug, *args, **kwargs):
@@ -49,21 +48,25 @@ class ReviewDetail(View):
 
         if post_form.is_valid():
             post_form.instance.email = request.user.email
-            post_form,instance.name = request.user.usename
+            post_form.instance.name = request.user.usename
             post = post_form.save(commit=False)
             post.save()
-
 
         return render(
             request,
             "review_detail.html",
             {"review": review,
-            "liked": liked,
-            },
+             "liked": liked,
+             },
         )
 
-@login_required
-class PostCreateView(CreateView):
+
+
+class PostCreateView(LoginRequiredMixin, generic.CreateView):
+    """
+    To show all reviews
+    """
+    login_url = 'account_login.html'
     model = TransportReview
     form_class = PostForm
     template_name = 'post_form.html'
@@ -75,10 +78,14 @@ class PostCreateView(CreateView):
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
 
-@login_required
-class PostLike(View):
 
-    def post(self, request, slug):
+
+class PostLike(generic.DetailView):
+    """
+    To show all reviews
+    """
+    def post(LoginRequiredMixin, self, request, slug):
+        login_url = 'account_login.html'
         post = get_object_or_404(TransportReview, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
@@ -88,8 +95,13 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
-@login_required
-class UpdatePostView(UpdateView):
+
+
+class UpdatePostView(LoginRequiredMixin, generic.UpdateView):
+    """
+    To show all reviews
+    """
+    login_url = 'account_login.html'
     model = TransportReview
     template_name = 'update_post.html'
     fields = ['title', 'review_body', 'featured_image']
@@ -98,7 +110,10 @@ class UpdatePostView(UpdateView):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
 
 
-class SearchList(ListView):
+class SearchList(generic.ListView):
+    """
+    To show all reviews
+    """
     template_name = 'search.html'
     model = TransportReview
 
@@ -111,10 +126,13 @@ class SearchList(ListView):
         return object_list
 
 
-@login_required
-class DeletePostView(DeleteView):
+
+class DeletePostView(LoginRequiredMixin, generic.DeleteView):
+    """
+    To show all reviews
+    """
+    login_url = 'account_login.html'
     model = TransportReview
     template_name = 'delete_review.html'
 
     success_url = reverse_lazy('home')
-  

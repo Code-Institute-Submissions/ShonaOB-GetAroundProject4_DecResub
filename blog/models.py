@@ -8,7 +8,7 @@ class Country(models.Model):
     country_name = models.CharField(max_length=100)
 
     class Meta:
-        ordering=['country_name']
+        ordering = ['country_name']
 
     def __str__(self):
         return self.country_name
@@ -31,7 +31,6 @@ class Sight(models.Model):
 
     class Meta:
         ordering = ['sight_name']
-        
 
     def __str__(self):
         return self.sight_name
@@ -64,7 +63,8 @@ class TransportReview(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     city = models.ForeignKey(CityName, on_delete=models.CASCADE)
     sight = models.ForeignKey(Sight, on_delete=models.CASCADE)
-    transport_option = models.CharField(max_length=200, choices=TRANSPORT_CHOICES)
+    transport_option = models.CharField(
+        max_length=200, choices=TRANSPORT_CHOICES)
     title = models.CharField(max_length=200, unique=True, default='Title')
     slug = models.SlugField(max_length=200, unique=True)
     rating = models.IntegerField(choices=RATING_CHOICES, default=1)
@@ -88,4 +88,3 @@ class TransportReview(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
-

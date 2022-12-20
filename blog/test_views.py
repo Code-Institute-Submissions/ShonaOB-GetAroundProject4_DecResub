@@ -1,6 +1,6 @@
 from django.test import TestCase
-from .models import TransportReview, Country, CityName, Sight, User
 from django.urls import reverse
+from .models import TransportReview, Country, CityName, Sight, User
 
 
 class TestViews(TestCase):
@@ -15,5 +15,3 @@ class TestViews(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_form.html')
-
-

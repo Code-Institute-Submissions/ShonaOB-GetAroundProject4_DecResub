@@ -1,9 +1,9 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 from .models import TransportReview
 from .models import Country
 from .models import CityName
 from .models import Sight
-from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(TransportReview)
@@ -20,4 +20,3 @@ admin.site.register(Country)
 admin.site.register(CityName)
 
 admin.site.register(Sight)
-

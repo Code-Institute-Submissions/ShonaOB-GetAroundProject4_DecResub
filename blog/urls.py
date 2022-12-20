@@ -1,6 +1,5 @@
-from . import views
-from .views import PostCreateView, ListView, DetailView, UpdatePostView
 from django.urls import path
+from . import views
 
 
 urlpatterns = [
