@@ -68,7 +68,9 @@ class PostCreateView(LoginRequiredMixin,
     """
     To create a reviews
     """
-    login_url = reverse_lazy('/')
+    # login_url = reverse_lazy('/')
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     model = TransportReview
     form_class = PostForm
     template_name = 'post_form.html'
