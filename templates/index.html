@@ -67,11 +67,11 @@
                     <p>Find reviews from real people for the sights you want to see.</p>
                     {% if user.is_authenticated %}
                     <p>Create your own review!</p>
-                    <a href="{% url 'post_form'%}"><button class="btn">Create Review</button></a>
+                    <a href="{% url 'post_form'%}">Create Review</a>
                     {% else %}
                     <p class="brand">Or</p>
                     <p>Register now to log a review!</p>
-                    <a href="{% url 'account_signup' %}"><button class="btn">Register Now!</button></a>
+                    <a href="{% url 'account_signup' %}">Register Now!</a>
                     {% endif %}
                 </div>
             </div>
