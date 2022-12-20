@@ -12,7 +12,8 @@
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/shonaobdev/image/upload/v1661676809/dino-reichmuth-A5rCN8626Ck-unsplash_ikbl72.jpg" width="100%">
+                <img src="https://res.cloudinary.com/shonaobdev/image/upload/v1661676809/dino-reichmuth-A5rCN8626Ck-unsplash_ikbl72.jpg"
+                    width="100%">
                 {% else %}
                 <img src="{{ review.featured_image.url }} " width="100%">
                 {% endif %}
@@ -25,18 +26,23 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <p class="card-text "> 
+                <p class="card-text ">
                     {{ review.country | safe }}
                     {{ review.city | safe  }}
                     {{ review.sight | safe  }}
                     {{ review.title | safe  }}
                 </p>
                 <p>
-                    <span class ="{% if review.rating > 0 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                    <span class ="{% if review.rating > 1 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                    <span class ="{% if review.rating > 2 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                    <span class ="{% if review.rating > 3 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                    <span class ="{% if review.rating > 4 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span
+                        class="{% if review.rating > 0 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span
+                        class="{% if review.rating > 1 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span
+                        class="{% if review.rating > 2 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span
+                        class="{% if review.rating > 3 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                    <span
+                        class="{% if review.rating > 4 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
                 </p>
                 <p>
                     {{ review.review_body | safe }}
@@ -44,8 +50,10 @@
                 <div class="row">
                     <div class="col-1">
                         {% if user == review.user_name %}
-                        <button class="btn btn-outline-info"><a href="{% url 'update_post' review.slug  %}"><i class="fa-solid fa-pencil"></i>Edit Review</a></button>
-                        <button class="btn btn-outline-info"><a href="{% url 'delete_post' review.slug  %}"><i class="fa-solid fa-trash-can"></i>Delete Review</a></button>
+                        <button class="btn btn-outline-info"><a href="{% url 'update_post' review.slug  %}"><i
+                                    class="fa-solid fa-pencil"></i>Edit Review</a></button>
+                        <button class="btn btn-outline-info"><a href="{% url 'delete_post' review.slug  %}"><i
+                                    class="fa-solid fa-trash-can"></i>Delete Review</a></button>
                         {% endif %}
                     </div>
                 </div>
@@ -56,16 +64,18 @@
                             <form class="d-inline" action="{% url 'post_like' review.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fas fa-heart"></i></button>
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="far fa-heart"></i></button>
                                 {% endif %}
                             </form>
                             {% else %}
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <span class="text-secondary">{{ post.number_of_likes }} </span>
+                            <!-- The number of likes goes before the closing strong tag -->
+                            <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
                     </div>
                 </div>

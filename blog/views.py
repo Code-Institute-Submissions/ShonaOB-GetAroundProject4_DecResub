@@ -21,7 +21,7 @@ class ReviewList(generic.ListView):
 class ReviewDetail(generic.DetailView):
 
     """
-    To show all reviews
+    To show the detail of the review
     """
     def get(self, request, slug, *args, **kwargs):
         queryset = TransportReview.objects.order_by('-created_on')
@@ -62,10 +62,11 @@ class ReviewDetail(generic.DetailView):
         )
 
 
-
-class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+class PostCreateView(LoginRequiredMixin,
+                     SuccessMessageMixin,
+                     generic.CreateView):
     """
-    To show all reviews
+    To create a reviews
     """
     login_url = reverse_lazy('/')
     model = TransportReview
@@ -74,7 +75,6 @@ class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView
 
     def form_valid(self, form, *args, **kwargs):
         form.instance.user_name = self.request.user
-        success_message = "Created successfully"
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -84,12 +84,11 @@ class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView
         return "Successfully Added!"
 
 
-
 class PostLike(generic.DetailView):
     """
-    To show all reviews
+    To like a reviews
     """
-    def post(LoginRequiredMixin, self, request, slug):
+    def post(self, LoginRequiredMixin, request, slug):
         login_url = 'account_login.html'
         post = get_object_or_404(TransportReview, slug=slug)
 
@@ -101,15 +100,16 @@ class PostLike(generic.DetailView):
         return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
 
-
-class UpdatePostView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
+class UpdatePostView(LoginRequiredMixin,
+                     SuccessMessageMixin,
+                     generic.UpdateView):
     """
-    To show all reviews
+    To update a review
     """
     login_url = 'account_login.html'
     model = TransportReview
     template_name = 'update_post.html'
-    fields = ['title', 'review_body', 'featured_image',]
+    fields = ['title', 'review_body', 'featured_image']
 
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
@@ -120,7 +120,7 @@ class UpdatePostView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView
 
 class SearchList(generic.ListView):
     """
-    To show all reviews
+    To search for reviews
     """
     template_name = 'search.html'
     model = TransportReview
@@ -134,15 +134,16 @@ class SearchList(generic.ListView):
         return object_list
 
 
-
-class DeletePostView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
+class DeletePostView(LoginRequiredMixin,
+                     SuccessMessageMixin,
+                     generic.DeleteView):
     """
-    To show all reviews
+    To delete a review
     """
     login_url = 'account_login.html'
     model = TransportReview
     template_name = 'delete_review.html'
-    
+
     success_url = reverse_lazy('home')
 
     def get_success_message(self, cleaned_data):

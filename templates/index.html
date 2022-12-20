@@ -8,7 +8,7 @@
         <!-- Review Entries Column -->
         <div class="col-8 mt-3 left">
             <div class="row">
-            {% for review in object_list %}
+                {% for review in object_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -27,25 +27,30 @@
                                 <h4 class="card-title">{{ review.title }}</h4>
                                 <h5>{{ review.country }} - {{ review.city }} - {{ review.sight }}</h5>
                                 <p>
-                                    <span class ="{% if review.rating > 0 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                                    <span class ="{% if review.rating > 1 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                                    <span class ="{% if review.rating > 2 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                                    <span class ="{% if review.rating > 3 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
-                                    <span class ="{% if review.rating > 4 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                                    <span
+                                        class="{% if review.rating > 0 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                                    <span
+                                        class="{% if review.rating > 1 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                                    <span
+                                        class="{% if review.rating > 2 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                                    <span
+                                        class="{% if review.rating > 3 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
+                                    <span
+                                        class="{% if review.rating > 4 %} fa-solid fa-star {% else %} fa-regular fa-star {% endif%}"></span>
                                 </p>
                             </a>
                             <hr>
                             <p class="card-text text-muted h6">{{ review.created_on }}
-                            <i class="far fa-heart"></i>{{ review.number_of_likes }}
+                                <i class="far fa-heart"></i>{{ review.number_of_likes }}
                             </p>
                         </div>
                     </div>
                 </div>
-            {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
-            {% endif %}
-            {% endfor %}
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
         <div class="col-4 mt-3 right">
@@ -54,12 +59,22 @@
                     <p>
                         Find the best ways to<span class="red-text"> Get Around </span>on your travels!
                     </p>
+                    <p>GetAround.ie is based on our own experiences of travelling without a tour-guide.</p>
+                    <p>For the most authentic (and cheapest!) experience, we wanted to use public transport to
+                        get around our travel destinations. But how do we know what routes to take?
+                        Which bus should we get, if we want to see the Catacombs in Rome?
+                        Well this site is intended to be an encyclopedia of local knowledge for all us travellers.</p>
                     <p>Find reviews from real people for the sights you want to see.</p>
-                    <p class="brand">Or</p> 
+                    {% if user.is_authenticated %}
+                    <p>Create your own review!</p>
+                    <button class="btn"><a href="{% url 'post_form'%}">Create Review</a></button>
+                    {% else %}
+                    <p class="brand">Or</p>
                     <p>Register now to log a review!</p>
                     <button class="btn"><a href="{% url 'account_signup' %}"> Register Now!</a></button>
+                    {% endif %}
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
     {% if is_paginated %}

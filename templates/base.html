@@ -23,12 +23,12 @@
 
 <body class="d-flex flex-column h-100 main-bg">
     {% if messages %}
-     {% for message in messages %}
-         <div class="text-center alert alert-{{ message.tags }}">
-             {{ message|safe }}
-         </div>
+    {% for message in messages %}
+    <div class="text-center alert alert-{{ message.tags }}">
+        {{ message|safe }}
+    </div>
     {% endfor %}
- 	{% endif %}
+    {% endif %}
 
     <!-- Navigation -->
 
@@ -86,4 +86,3 @@
 </body>
 
 </html>
-
