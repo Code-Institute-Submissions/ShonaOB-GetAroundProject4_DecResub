@@ -104,7 +104,7 @@ class UpdatePostView(LoginRequiredMixin, generic.UpdateView):
     login_url = 'account_login.html'
     model = TransportReview
     template_name = 'update_post.html'
-    fields = ['title', 'review_body', 'featured_image']
+    fields = ['title', 'review_body', 'featured_image',]
 
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
