@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import TransportReview
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from .forms import PostForm
 from django.urls import reverse, reverse_lazy
@@ -62,21 +63,25 @@ class ReviewDetail(generic.DetailView):
 
 
 
-class PostCreateView(LoginRequiredMixin, generic.CreateView):
+class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
     To show all reviews
     """
-    login_url = 'account_login.html'
+    login_url = reverse_lazy('/')
     model = TransportReview
     form_class = PostForm
     template_name = 'post_form.html'
 
     def form_valid(self, form, *args, **kwargs):
         form.instance.user_name = self.request.user
+        success_message = "Created successfully"
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
+
+    def get_success_message(self, cleaned_data):
+        return "Successfully Added!"
 
 
 
@@ -97,7 +102,7 @@ class PostLike(generic.DetailView):
 
 
 
-class UpdatePostView(LoginRequiredMixin, generic.UpdateView):
+class UpdatePostView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     """
     To show all reviews
     """
@@ -108,6 +113,9 @@ class UpdatePostView(LoginRequiredMixin, generic.UpdateView):
 
     def get_success_url(self):
         return reverse('review_detail', kwargs={'slug': self.object.slug})
+
+    def get_success_message(self, cleaned_data):
+        return "Successfully updated"
 
 
 class SearchList(generic.ListView):
@@ -127,12 +135,15 @@ class SearchList(generic.ListView):
 
 
 
-class DeletePostView(LoginRequiredMixin, generic.DeleteView):
+class DeletePostView(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     """
     To show all reviews
     """
     login_url = 'account_login.html'
     model = TransportReview
     template_name = 'delete_review.html'
-
+    
     success_url = reverse_lazy('home')
+
+    def get_success_message(self, cleaned_data):
+        return "Successfully Deleted"
